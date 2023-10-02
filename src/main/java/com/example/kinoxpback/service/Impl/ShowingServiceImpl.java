@@ -29,7 +29,7 @@ public class ShowingServiceImpl implements ShowingService {
         Optional<Showing> showingFound = showingRepository.findById(id);
 
         if(showingFound.isPresent()) {
-            showing.setMovieId(id);
+            showing.setShowingId(id);
             return Optional.of(showingRepository.save(showing));
         } else {
             return Optional.empty();

@@ -9,7 +9,8 @@ import java.time.LocalTime;
 public class Showing {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int movieId;
+    @Column(name="showing_id")
+    private int showingId;
 
     @Column(name="show_date")
     private LocalDate showDate;
@@ -28,12 +29,12 @@ public class Showing {
     private Theater theater;
 
      */
-    public int getMovieId() {
-        return movieId;
+    public int getShowingId() {
+        return showingId;
     }
 
-    public void setMovieId(int movieId) {
-        this.movieId = movieId;
+    public void setShowingId(int showingId) {
+        this.showingId = showingId;
     }
 
     public LocalDate getShowDate() {
