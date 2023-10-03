@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class MovieTest {
 
-        MovieServiceImpl sut;
+    MovieServiceImpl sut;
 
     @BeforeAll
     public void beforeAll() {

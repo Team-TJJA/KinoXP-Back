@@ -1,6 +1,5 @@
 package com.example.kinoxpback.model;
 
-//import com.example.kinoxpback.model.Showing;
 import com.example.kinoxpback.enums.AgeLimit;
 import com.example.kinoxpback.enums.MovieCategory;
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -23,29 +22,29 @@ public class Movie {
     private AgeLimit ageLimit;
     @Column(name = "description", columnDefinition = "TEXT")
     private String description;
-    @Column(name = "href")
-    private String href;
+    @Column(name = "photo")
+    private String photo;
 
-/*
+
     @OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
     @JsonBackReference
     private Set<Showing> showings;
- */
+
 
     public void setDescription(String description) {
         this.description = description;
     }
 
-    public void setHref(String href) {
-        this.href = href;
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 
     public String getDescription() {
         return description;
     }
 
-    public String getHref() {
-        return href;
+    public String getPhoto() {
+        return photo;
     }
 
     public int getMovieID() {
@@ -80,12 +79,12 @@ public class Movie {
         this.ageLimit = ageLimit;
     }
 
-    /*public Showing getShowing() {
+    public Showing getShowing() {
         return showing;
     }
 
     public void setShowing(Showing showing) {
         this.showing = showing;
     }
-    */
+
 }
