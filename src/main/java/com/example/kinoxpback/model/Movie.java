@@ -7,21 +7,46 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "movies")
 public class Movie {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "movie_id")
     private int movieID;
+    @Column(name = "title")
     private String title;
     @Enumerated(EnumType.STRING)
+    @Column(name = "category")
     private MovieCategory category;
     @Enumerated(EnumType.STRING)
+    @Column(name = "age_limit")
     private AgeLimit ageLimit;
+    @Column(name = "description", columnDefinition = "TEXT")
+    private String description;
+    @Column(name = "href")
+    private String href;
 
 /*
     @OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
     @JsonBackReference
     private Set<Showing> showings;
  */
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setHref(String href) {
+        this.href = href;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getHref() {
+        return href;
+    }
 
     public int getMovieID() {
         return movieID;
