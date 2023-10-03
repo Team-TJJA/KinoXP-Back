@@ -21,7 +21,7 @@ public class ShowingRestController {
     public ResponseEntity<List<Showing>> getShowing() {
         List<Showing> showings = showingService.getShowings();
 
-        if(showings.isEmpty()){
+        if(!showings.isEmpty()){
             return ResponseEntity.status(HttpStatus.OK).body(showings);
         } else {
             return ResponseEntity.status(HttpStatus.NO_CONTENT).body(showings);
