@@ -18,7 +18,7 @@ public class TheaterRestController {
     @Autowired
     TheaterService theaterService;
 
-    @GetMapping("/Theaters")
+    @GetMapping("/theaters")
     public ResponseEntity<List<Theater>> getTheater() {
         List<Theater> theaters = theaterService.getTheaters();
 

@@ -8,27 +8,14 @@ public class Theater {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="theater_id")
     private int theaterID;
+    @Enumerated(EnumType.STRING)
     private TheaterSize size;
+
+    @Column(name="number_of_rows")
     private int numberOfRows;
+
+    @Column(name="number_of_seats_per_row")
     private int numberOfSeatsPerRow;
-
-    public Theater() {
-    }
-
-    public Theater(TheaterSize size) {
-        this.size = size;
-        switch(size){
-            case SMALL:
-                numberOfRows = 20;
-                numberOfSeatsPerRow = 12;
-                break;
-
-            case LARGE:
-                numberOfRows = 25;
-                numberOfSeatsPerRow = 16;
-                break;
-        }
-    }
 
     public int getTheaterID() {
         return theaterID;
@@ -44,6 +31,16 @@ public class Theater {
 
     public void setSize(TheaterSize size) {
         this.size = size;
+        switch (size) {
+            case SMALL -> {
+                numberOfRows = 20;
+                numberOfSeatsPerRow = 12;
+            }
+            case LARGE -> {
+                numberOfRows = 25;
+                numberOfSeatsPerRow = 16;
+            }
+        }
     }
 
     public int getNumberOfRows() {
