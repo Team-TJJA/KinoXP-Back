@@ -20,9 +20,9 @@ public class Showing {
 
     private double price;
 
-//    @ManyToOne
-//    @JoinColumn(name="fk_movie_id", referencedColumnName = "movie_id")
-//    private Movie movie;
+   @ManyToOne
+    @JoinColumn(name="fk_movie_id", referencedColumnName = "movie_id")
+    private Movie movie;
 
     @ManyToOne
     @JoinColumn(name="fk_theater_id", referencedColumnName = "theater_id")
