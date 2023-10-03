@@ -11,7 +11,7 @@ public interface ShowingService {
 
     Optional<Showing> postShowing(Showing showing);
 
-    Optional<Showing> putShowing(int id, Showing showing);
+    Optional<Showing> putShowing(Showing showing);
 
     boolean deleteShowing(int id);
 

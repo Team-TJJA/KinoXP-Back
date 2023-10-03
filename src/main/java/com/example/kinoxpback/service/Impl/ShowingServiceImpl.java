@@ -25,11 +25,10 @@ public class ShowingServiceImpl implements ShowingService {
         return Optional.of(showingRepository.save(showing));
     }
 
-    public Optional<Showing> putShowing(int id, Showing showing) {
-        Optional<Showing> showingFound = showingRepository.findById(id);
+    public Optional<Showing> putShowing(Showing showing) {
+        Optional<Showing> showingFound = showingRepository.findById(showing.getShowingId());
 
         if(showingFound.isPresent()) {
-            showing.setShowingId(id);
             return Optional.of(showingRepository.save(showing));
         } else {
             return Optional.empty();
@@ -42,7 +41,7 @@ public class ShowingServiceImpl implements ShowingService {
         Optional<Showing> showingDeleted = showingRepository.findById(id);
 
         if(showingDeleted.isPresent()) {
-            showingRepository.deleteById(id);
+            showingRepository.delete(showingDeleted.get());
             return true;
         }
         return false;

@@ -39,9 +39,9 @@ public class ShowingRestController {
         }
     }
 
-    @PutMapping("/showings/{id}")
-    public ResponseEntity<?> putShowing(@PathVariable int id, @RequestBody Showing showing) {
-        Optional<Showing> showingUpdated = showingService.putShowing(id,showing);
+    @PutMapping("/showings")
+    public ResponseEntity<?> putShowing(@RequestBody Showing showing) {
+        Optional<Showing> showingUpdated = showingService.putShowing(showing);
 
         if(showingUpdated.isPresent()) {
             return ResponseEntity.status(HttpStatus.OK).body(showingUpdated.get());
