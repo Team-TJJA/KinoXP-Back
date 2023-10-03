@@ -18,17 +18,33 @@ public class Showing {
     @Column(name="show_time")
     private LocalTime showTime;
 
-    // Classes not made yet
-    /*
-    @ManyToOne
-    @JoinColumn(name="fk_movie_id", referencedColumnName = "movie_id")
-    private Movie movie;
+    private double price;
+
+//    @ManyToOne
+//    @JoinColumn(name="fk_movie_id", referencedColumnName = "movie_id")
+//    private Movie movie;
 
     @ManyToOne
     @JoinColumn(name="fk_theater_id", referencedColumnName = "theater_id")
     private Theater theater;
 
-     */
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public Theater getTheater() {
+        return theater;
+    }
+
+    public void setTheater(Theater theater) {
+        this.theater = theater;
+    }
+
     public int getShowingId() {
         return showingId;
     }
@@ -53,23 +69,4 @@ public class Showing {
         this.showTime = showTime;
     }
 
-    //Classes not made yet
-    /*
-    public Movie getMovie() {
-        return movie;
-    }
-
-    public void setMovie(Movie movie) {
-        this.movie = movie;
-    }
-
-    public Theater getTheater() {
-        return theater;
-    }
-
-    public void setTheater(Theater theater) {
-        this.theater = theater;
-    }
-
-     */
 }
