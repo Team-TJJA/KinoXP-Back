@@ -88,4 +88,5 @@ public class Movie {
     public void setShowing(Set<Showing> showing) {
         this.showing = showing;
     }
+
 }

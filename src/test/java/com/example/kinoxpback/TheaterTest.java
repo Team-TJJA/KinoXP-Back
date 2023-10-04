@@ -37,4 +37,5 @@ public class TheaterTest {
         assertEquals(expectedNumberOfSeatsPerRow, cut.getNumberOfSeatsPerRow());
     }
 
+
 }
