@@ -5,6 +5,8 @@ import com.example.kinoxpback.enums.MovieCategory;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
+import java.util.Set;
+
 @Entity
 @Table(name = "movies")
 public class Movie {
@@ -28,7 +30,7 @@ public class Movie {
 
     @OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
     @JsonBackReference
-    private Set<Showing> showings;
+    private Set<Showing> showing;
 
 
     public void setDescription(String description) {
@@ -79,11 +81,11 @@ public class Movie {
         this.ageLimit = ageLimit;
     }
 
-    public Showing getShowing() {
+    public Set<Showing> getShowing() {
         return showing;
     }
 
-    public void setShowing(Showing showing) {
+    public void setShowing(Set<Showing> showing) {
         this.showing = showing;
     }
 
