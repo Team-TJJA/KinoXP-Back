@@ -13,7 +13,9 @@ public class TheaterTest {
 
     @Test
     public void theaterRowAndSeatSmall(){
-        cut = new Theater(TheaterSize.SMALL);
+        cut = new Theater();
+
+        cut.setSize(TheaterSize.SMALL);
 
         int expectedNumberOfRows = 20;
         int expectedNumberOfSeatsPerRow = 12;
@@ -24,7 +26,9 @@ public class TheaterTest {
 
     @Test
     public void theaterRowAndSeatLarge(){
-        cut = new Theater(TheaterSize.LARGE);
+        cut = new Theater();
+
+        cut.setSize(TheaterSize.LARGE);
 
         int expectedNumberOfRows = 25;
         int expectedNumberOfSeatsPerRow = 16;
