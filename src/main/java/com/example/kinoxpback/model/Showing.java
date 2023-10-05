@@ -18,6 +18,7 @@ public class Showing {
     @Column(name="show_time")
     private LocalTime showTime;
 
+    @Column(name="price")
     private double price;
 
    @ManyToOne
