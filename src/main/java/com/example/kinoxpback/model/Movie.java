@@ -32,7 +32,6 @@ public class Movie {
     @JsonBackReference
     private Set<Showing> showing;
 
-
     public void setDescription(String description) {
         this.description = description;
     }

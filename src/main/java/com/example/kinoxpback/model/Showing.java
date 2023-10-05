@@ -69,4 +69,12 @@ public class Showing {
         this.showTime = showTime;
     }
 
+    public Movie getMovie() {
+        return movie;
+    }
+
+    public void setMovie(Movie movie) {
+        this.movie = movie;
+    }
+
 }
