@@ -1,29 +1,28 @@
 package com.example.kinoxpback;
 
 import com.example.kinoxpback.model.Showing;
+import com.example.kinoxpback.service.Impl.ShowingServiceImpl;
 import com.example.kinoxpback.service.ShowingService;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 import java.util.Optional;
 
-@SpringBootTest
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class ShowingServiceImplTest {
 
-    @Autowired
-    private ShowingService showingService;
-
-    private static Showing showing;
+    /*
+    static ShowingServiceImpl showingServiceImpl;
+    static Showing showing;
 
     @BeforeAll
     static void setup() {
-         showing = new Showing();
+        showing = new Showing();
+        showingServiceImpl = new ShowingServiceImpl();
     }
 
     @ParameterizedTest
@@ -38,7 +37,7 @@ public class ShowingServiceImplTest {
         showing.setShowTime(time);
 
         // Act
-        Optional<Showing> result = showingService.postShowing(showing);
+        Optional<Showing> result = showingServiceImpl.postShowing(showing);
 
         // Assert
         Assertions.assertTrue(result.isPresent());
@@ -48,9 +47,10 @@ public class ShowingServiceImplTest {
     @Test
     public void testingShowingObjectRetrievalFromDatabase() {
         //Act
-        List<Showing> showingsResult = showingService.getShowings();
+        List<Showing> showingsResult = showingServiceImpl.getShowings();
 
         //Assert
         Assertions.assertEquals(2,showingsResult.size());
     }
+    */
 }

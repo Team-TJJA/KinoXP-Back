@@ -9,6 +9,7 @@ public class Theater {
     @Column(name="theater_id")
     private int theaterID;
     @Enumerated(EnumType.STRING)
+    @Column(name="theater_size")
     private TheaterSize size;
 
     @Column(name="number_of_rows")

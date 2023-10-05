@@ -19,47 +19,13 @@ public class TheaterRestController {
     TheaterService theaterService;
 
     @GetMapping("/theaters")
-    public ResponseEntity<List<Theater>> getTheater() {
+    public ResponseEntity<List<Theater>> getTheaters() {
         List<Theater> theaters = theaterService.getTheaters();
 
         if (!theaters.isEmpty()) {
             return ResponseEntity.status(HttpStatus.OK).body(theaters);
         } else {
             return ResponseEntity.status(HttpStatus.NO_CONTENT).body(theaters);
-        }
-    }
-
-    @PostMapping("/theaters")
-    public ResponseEntity<?> postTheater(@RequestBody Theater theater) {
-        Optional<Theater> theaterSaved = theaterService.postTheater(theater);
-
-        if (theaterSaved.isPresent()) {
-            return ResponseEntity.status(HttpStatus.CREATED).body(theaterSaved.get());
-        } else {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("SHOW NOT SAVED");
-        }
-    }
-
-    @PutMapping("/theaters")
-    public ResponseEntity<?> putTheater(@RequestBody Theater theater) {
-        Optional<Theater> theaterUpdated = theaterService.putTheater(theater);
-
-        if (theaterUpdated.isPresent()) {
-            return ResponseEntity.status(HttpStatus.OK).body(theaterUpdated.get());
-        } else {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("SHOW NOT UPDATED");
-        }
-    }
-
-
-    @DeleteMapping("/theaters/delete/{id}")
-    public ResponseEntity<String> deleteTheater(@PathVariable int id) {
-        boolean theaterDeleted = theaterService.deleteTheater(id);
-
-        if (theaterDeleted) {
-            return ResponseEntity.status(HttpStatus.OK).body("SHOW DELETED");
-        } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("SHOW NOT DELETED");
         }
     }
 }
