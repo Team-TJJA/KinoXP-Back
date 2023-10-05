@@ -26,12 +26,13 @@ public class Movie {
     private String description;
     @Column(name = "photo")
     private String photo;
+    @Column(name="duration")
+    private int duration;
 
 
     @OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
     @JsonBackReference
     private Set<Showing> showing;
-
 
     public void setDescription(String description) {
         this.description = description;
@@ -89,4 +90,11 @@ public class Movie {
         this.showing = showing;
     }
 
+    public int getDuration() {
+        return duration;
+    }
+
+    public void setDuration(int duration) {
+        this.duration = duration;
+    }
 }
