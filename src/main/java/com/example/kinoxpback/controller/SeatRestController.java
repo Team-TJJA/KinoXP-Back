@@ -20,7 +20,7 @@ public class SeatRestController {
 
     /*------------------------------------------GET-------------------------------------------------------------------*/
 
-    @GetMapping("/seat")
+    @GetMapping("/seats")
     public ResponseEntity<List<Seat>> getSeat() {
         List<Seat> seatList = seatService.getSeats();
         if (seatList.isEmpty()){

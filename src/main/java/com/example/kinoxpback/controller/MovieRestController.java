@@ -60,7 +60,7 @@ public class MovieRestController {
 
     /*-------------------------------------------------DELETE---------------------------------------------------------*/
 
-    @DeleteMapping("/movies/delete/{id}")
+    @DeleteMapping("/movies/{id}")
     public ResponseEntity<String> deleteMovie(@PathVariable int id){
         boolean movieFound = movieService.deleteMovie(id);
 

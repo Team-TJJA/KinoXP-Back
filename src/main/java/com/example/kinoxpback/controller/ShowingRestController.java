@@ -51,7 +51,7 @@ public class ShowingRestController {
     }
 
 
-    @DeleteMapping("/showings/delete/{id}")
+    @DeleteMapping("/showings/{id}")
     public ResponseEntity<String> deleteShowing(@PathVariable int id) {
         boolean showingDeleted = showingService.deleteShowing(id);
 

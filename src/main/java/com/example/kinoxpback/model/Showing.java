@@ -12,11 +12,11 @@ public class Showing {
     @Column(name="showing_id")
     private int showingId;
 
-    @Column(name="show_date")
-    private LocalDate showDate;
+    @Column(name="showing_date")
+    private LocalDate showingDate;
 
-    @Column(name="show_time")
-    private LocalTime showTime;
+    @Column(name="showing_time")
+    private LocalTime showingTime;
 
     @Column(name="price")
     private double price;
@@ -55,19 +55,19 @@ public class Showing {
     }
 
     public LocalDate getShowDate() {
-        return showDate;
+        return showingDate;
     }
 
     public void setShowDate(LocalDate showDate) {
-        this.showDate = showDate;
+        this.showingDate = showDate;
     }
 
     public LocalTime getShowTime() {
-        return showTime;
+        return showingTime;
     }
 
     public void setShowTime(LocalTime showTime) {
-        this.showTime = showTime;
+        this.showingTime = showTime;
     }
 
     public Movie getMovie() {

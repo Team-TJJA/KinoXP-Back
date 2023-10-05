@@ -26,6 +26,8 @@ public class Movie {
     private String description;
     @Column(name = "photo")
     private String photo;
+    @Column(name="duration")
+    private int duration;
 
 
     @OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
@@ -88,4 +90,11 @@ public class Movie {
         this.showing = showing;
     }
 
+    public int getDuration() {
+        return duration;
+    }
+
+    public void setDuration(int duration) {
+        this.duration = duration;
+    }
 }
