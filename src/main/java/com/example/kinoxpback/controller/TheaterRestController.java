@@ -36,7 +36,7 @@ public class TheaterRestController {
         if (theaterSaved.isPresent()) {
             return ResponseEntity.status(HttpStatus.CREATED).body(theaterSaved.get());
         } else {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("SHOW NOT SAVED");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("THEATER NOT SAVED");
         }
     }
 
@@ -47,7 +47,7 @@ public class TheaterRestController {
         if (theaterUpdated.isPresent()) {
             return ResponseEntity.status(HttpStatus.OK).body(theaterUpdated.get());
         } else {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("SHOW NOT UPDATED");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("THEATER NOT UPDATED");
         }
     }
 
@@ -57,9 +57,9 @@ public class TheaterRestController {
         boolean theaterDeleted = theaterService.deleteTheater(id);
 
         if (theaterDeleted) {
-            return ResponseEntity.status(HttpStatus.OK).body("SHOW DELETED");
+            return ResponseEntity.status(HttpStatus.OK).body("THEATER DELETED");
         } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("SHOW NOT DELETED");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("THEATER NOT DELETED");
         }
     }
 }
