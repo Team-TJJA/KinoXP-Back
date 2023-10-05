@@ -3,6 +3,7 @@ package com.example.kinoxpback.model;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name="seats")
 public class Seat {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="seat_id")
@@ -10,7 +11,7 @@ public class Seat {
     @ManyToOne
     @JoinColumn(name="fk_theater_id", referencedColumnName = "theater_id")
     private Theater theaterID;
-    @Column(name="row_number")
+    @Column(name="rw_number")
     private int rowNumber;
     @Column(name="seat_number")
     private int seatNumber;
