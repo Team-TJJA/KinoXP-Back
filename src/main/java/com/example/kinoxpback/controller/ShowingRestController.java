@@ -18,7 +18,7 @@ public class ShowingRestController {
     ShowingService showingService;
 
     @GetMapping("/showings")
-    public ResponseEntity<List<Showing>> getShowing() {
+    public ResponseEntity<List<Showing>> getShowings() {
         List<Showing> showings = showingService.getShowings();
 
         if(!showings.isEmpty()){

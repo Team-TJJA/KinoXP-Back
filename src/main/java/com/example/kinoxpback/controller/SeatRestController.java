@@ -21,7 +21,7 @@ public class SeatRestController {
     /*------------------------------------------GET-------------------------------------------------------------------*/
 
     @GetMapping("/seats")
-    public ResponseEntity<List<Seat>> getSeat() {
+    public ResponseEntity<List<Seat>> getSeats() {
         List<Seat> seatList = seatService.getSeats();
         if (seatList.isEmpty()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(seatList);

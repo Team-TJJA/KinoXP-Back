@@ -19,7 +19,7 @@ public class TheaterRestController {
     TheaterService theaterService;
 
     @GetMapping("/theaters")
-    public ResponseEntity<List<Theater>> getTheater() {
+    public ResponseEntity<List<Theater>> getTheaters() {
         List<Theater> theaters = theaterService.getTheaters();
 
         if (!theaters.isEmpty()) {
