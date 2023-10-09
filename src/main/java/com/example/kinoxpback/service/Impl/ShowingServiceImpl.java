@@ -6,6 +6,7 @@ import com.example.kinoxpback.service.ShowingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -49,8 +50,8 @@ public class ShowingServiceImpl implements ShowingService {
     }
 
     @Override
-    public List<Showing> getShowingsFromDate(Date date) {
-        return showingRepository.getShowingsFromDate(date);
+    public List<LocalDate> getShowingsFromDate() {
+        return showingRepository.getShowingsFromDate();
     }
 
 
