@@ -2,6 +2,7 @@ package com.example.kinoxpback.service;
 
 import com.example.kinoxpback.model.Showing;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,4 +16,5 @@ public interface ShowingService {
 
     boolean deleteShowing(int id);
 
+    List<Showing> getShowingsFromDate(Date date);
 }

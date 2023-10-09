@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,6 +21,17 @@ public class ShowingRestController {
     @GetMapping("/showings")
     public ResponseEntity<List<Showing>> getShowings() {
         List<Showing> showings = showingService.getShowings();
+
+        if(!showings.isEmpty()){
+            return ResponseEntity.status(HttpStatus.OK).body(showings);
+        } else {
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(showings);
+        }
+    }
+
+    @GetMapping("/getshowings/{date}")
+    public ResponseEntity<List<Showing>> getAllShowings(@PathVariable Date date){
+        List<Showing> showings = showingService.getShowingsFromDate(date);
 
         if(!showings.isEmpty()){
             return ResponseEntity.status(HttpStatus.OK).body(showings);
