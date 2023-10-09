@@ -12,5 +12,4 @@ import java.util.List;
 public interface ShowingRepository extends JpaRepository<Showing,Integer> {
     @Query("SELECT s.showingDate FROM Showing s WHERE s.showingDate >= CURRENT_DATE AND s.showingDate <= CURRENT_DATE + 7")
     List<LocalDate> getShowingsFromDate();
-
 }
