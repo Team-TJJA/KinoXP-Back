@@ -11,6 +11,10 @@ public interface ShowingService {
 
     List<Showing> getShowings();
 
+    List<Showing> getShowings(LocalDate date);
+
+    List<LocalDate> showingDatesEightDays();
+
     Optional<Showing> postShowing(Showing showing);
 
     Optional<Showing> putShowing(Showing showing);

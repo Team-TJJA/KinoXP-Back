@@ -30,7 +30,26 @@ public class ShowingRestController {
         }
     }
 
+    @GetMapping("/showings/{date}")
+    public ResponseEntity<List<Showing>> getShowings(@PathVariable LocalDate date){
+        List<Showing> showings = showingService.getShowings(date);
 
+        if(!showings.isEmpty()){
+            return ResponseEntity.status(HttpStatus.OK).body(showings);
+        } else {
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(showings);
+        }
+    }
+    @GetMapping("/showings/week")
+    public ResponseEntity<List<LocalDate>> showingDatesEightDays(){
+        List<LocalDate> showingDates = showingService.showingDatesEightDays();
+
+        if(!showingDates.isEmpty()){
+            return ResponseEntity.status(HttpStatus.OK).body(showingDates);
+        } else {
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(showingDates);
+        }
+    }
 
     @PostMapping("/showings")
     public ResponseEntity<?> postShowing(@RequestBody Showing showing) {
