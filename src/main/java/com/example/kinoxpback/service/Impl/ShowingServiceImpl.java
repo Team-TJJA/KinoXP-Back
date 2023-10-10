@@ -49,10 +49,7 @@ public class ShowingServiceImpl implements ShowingService {
         return false;
     }
 
-    @Override
-    public List<LocalDate> getShowingsFromDate() {
-        return showingRepository.getShowingsFromDate();
-    }
+
 
 
 }

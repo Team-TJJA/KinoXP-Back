@@ -17,5 +17,4 @@ public interface ShowingService {
 
     boolean deleteShowing(int id);
 
-    List<LocalDate> getShowingsFromDate();
 }

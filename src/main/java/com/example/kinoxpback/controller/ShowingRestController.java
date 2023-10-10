@@ -30,16 +30,7 @@ public class ShowingRestController {
         }
     }
 
-    @GetMapping("/showingseightdays")
-    public ResponseEntity<List<LocalDate>> getAllShowings(){
-        List<LocalDate> showings = showingService.getShowingsFromDate();
 
-        if(!showings.isEmpty()){
-            return ResponseEntity.status(HttpStatus.OK).body(showings);
-        } else {
-            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(showings);
-        }
-    }
 
     @PostMapping("/showings")
     public ResponseEntity<?> postShowing(@RequestBody Showing showing) {
