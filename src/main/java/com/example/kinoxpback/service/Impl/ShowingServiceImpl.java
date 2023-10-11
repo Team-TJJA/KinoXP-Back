@@ -39,7 +39,7 @@ public class ShowingServiceImpl implements ShowingService {
     }
 
     public Optional<Showing> putShowing(Showing showing) {
-        Optional<Showing> showingFound = showingRepository.findById(showing.getShowingId());
+        Optional<Showing> showingFound = showingRepository.findById(showing.getShowingID());
 
         if(showingFound.isPresent()) {
             return Optional.of(showingRepository.save(showing));
