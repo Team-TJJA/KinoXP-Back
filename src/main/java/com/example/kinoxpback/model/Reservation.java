@@ -25,13 +25,12 @@ public class Reservation {
     private LocalDateTime timestamp;
 
     @ManyToMany
-    @JoinTable(name = "reservation_taken_seats", joinColumns = @JoinColumn(name = "reservation_id"), inverseJoinColumns = @JoinColumn(name = "seat_id"))
-    private Set<Seat> takenSeats;
+    @JoinTable(name = "reservations_seats", joinColumns = @JoinColumn(name = "reservation_id"), inverseJoinColumns = @JoinColumn(name = "seat_id"))
+    private Set<Seat> reservationSeats;
 
     @ManyToOne
     @JoinColumn(name="showing_id_fk", referencedColumnName = "showing_id")
     private Showing showing;
-
 
     public int getReservationID() {
         return reservationID;
@@ -73,12 +72,12 @@ public class Reservation {
         this.timestamp = timestamp;
     }
 
-    public Set<Seat> getTakenSeats() {
-        return takenSeats;
+    public Set<Seat> getReservationSeats() {
+        return reservationSeats;
     }
 
-    public void setTakenSeats(Set<Seat> takenSeats) {
-        this.takenSeats = takenSeats;
+    public void setReservationSeats(Set<Seat> reservationSeats) {
+        this.reservationSeats = reservationSeats;
     }
 
     public Showing getShowing() {
