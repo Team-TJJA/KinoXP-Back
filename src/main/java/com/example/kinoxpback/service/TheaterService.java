@@ -1,5 +1,6 @@
 package com.example.kinoxpback.service;
 
+import com.example.kinoxpback.model.Seat;
 import com.example.kinoxpback.model.Theater;
 
 import java.util.List;
@@ -13,4 +14,6 @@ public interface TheaterService {
     Optional<Theater> putTheater(Theater theater);
 
     boolean deleteTheater(int id);
+
+    List<Seat> getTheaterSeats(int id);
 }
