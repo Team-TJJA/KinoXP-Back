@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,6 +27,27 @@ public class ShowingRestController {
             return ResponseEntity.status(HttpStatus.OK).body(showings);
         } else {
             return ResponseEntity.status(HttpStatus.NO_CONTENT).body(showings);
+        }
+    }
+
+    @GetMapping("/showings/{date}")
+    public ResponseEntity<List<Showing>> getShowings(@PathVariable LocalDate date){
+        List<Showing> showings = showingService.getShowings(date);
+
+        if(!showings.isEmpty()){
+            return ResponseEntity.status(HttpStatus.OK).body(showings);
+        } else {
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(showings);
+        }
+    }
+    @GetMapping("/showings/week")
+    public ResponseEntity<List<LocalDate>> showingDatesEightDays(){
+        List<LocalDate> showingDates = showingService.showingDatesEightDays();
+
+        if(!showingDates.isEmpty()){
+            return ResponseEntity.status(HttpStatus.OK).body(showingDates);
+        } else {
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(showingDates);
         }
     }
 

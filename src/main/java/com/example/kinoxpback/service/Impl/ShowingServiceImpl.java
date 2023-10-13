@@ -6,6 +6,9 @@ import com.example.kinoxpback.service.ShowingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,12 +24,22 @@ public class ShowingServiceImpl implements ShowingService {
     }
 
     @Override
+    public List<Showing> getShowings(LocalDate date) {
+        return showingRepository.findByShowingDate(date);
+    }
+
+    @Override
+    public List<LocalDate> showingDatesEightDays() {
+        return showingRepository.showingDatesEightDays();
+    }
+
+    @Override
     public Optional<Showing> postShowing(Showing showing) {
         return Optional.of(showingRepository.save(showing));
     }
 
     public Optional<Showing> putShowing(Showing showing) {
-        Optional<Showing> showingFound = showingRepository.findById(showing.getShowingId());
+        Optional<Showing> showingFound = showingRepository.findById(showing.getShowingID());
 
         if(showingFound.isPresent()) {
             return Optional.of(showingRepository.save(showing));
@@ -46,6 +59,8 @@ public class ShowingServiceImpl implements ShowingService {
         }
         return false;
     }
+
+
 
 
 }

@@ -10,7 +10,7 @@ public class Showing {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="showing_id")
-    private int showingId;
+    private int showingID;
 
     @Column(name="showing_date")
     private LocalDate showingDate;
@@ -46,12 +46,12 @@ public class Showing {
         this.theater = theater;
     }
 
-    public int getShowingId() {
-        return showingId;
+    public int getShowingID() {
+        return showingID;
     }
 
-    public void setShowingId(int showingId) {
-        this.showingId = showingId;
+    public void setShowingID(int showingId) {
+        this.showingID = showingId;
     }
 
     public LocalDate getShowDate() {
