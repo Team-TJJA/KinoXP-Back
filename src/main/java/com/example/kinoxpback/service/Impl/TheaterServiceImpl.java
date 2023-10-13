@@ -1,5 +1,6 @@
 package com.example.kinoxpback.service.Impl;
 
+import com.example.kinoxpback.model.Seat;
 import com.example.kinoxpback.model.Theater;
 import com.example.kinoxpback.repository.TheaterRepository;
 import com.example.kinoxpback.service.TheaterService;
@@ -42,5 +43,11 @@ public class TheaterServiceImpl implements TheaterService {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public List<Seat> getTheaterSeats(int id) {
+        Optional<Theater> theater = theaterRepository.findById(id);
+        return theater.get().getSeats();
     }
 }

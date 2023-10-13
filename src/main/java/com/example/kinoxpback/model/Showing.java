@@ -1,16 +1,19 @@
 package com.example.kinoxpback.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Set;
+
 @Entity
 @Table(name="showings")
 public class Showing {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="showing_id")
-    private int showingId;
+    private int showingID;
 
     @Column(name="showing_date")
     private LocalDate showingDate;
@@ -29,6 +32,9 @@ public class Showing {
     @JoinColumn(name="fk_theater_id", referencedColumnName = "theater_id")
     private Theater theater;
 
+    @OneToMany(mappedBy = "showing")
+    @JsonBackReference
+    private Set<Reservation> reservations;
 
     public double getPrice() {
         return price;
@@ -46,12 +52,12 @@ public class Showing {
         this.theater = theater;
     }
 
-    public int getShowingId() {
-        return showingId;
+    public int getShowingID() {
+        return showingID;
     }
 
-    public void setShowingId(int showingId) {
-        this.showingId = showingId;
+    public void setShowingID(int showingId) {
+        this.showingID = showingId;
     }
 
     public LocalDate getShowDate() {
@@ -78,4 +84,11 @@ public class Showing {
         this.movie = movie;
     }
 
+    public Set<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(Set<Reservation> reservations) {
+        this.reservations = reservations;
+    }
 }
