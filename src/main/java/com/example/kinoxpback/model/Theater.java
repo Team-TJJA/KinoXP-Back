@@ -1,7 +1,11 @@
 package com.example.kinoxpback.model;
 
 import com.example.kinoxpback.enums.TheaterSize;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
+
+import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Theater {
@@ -17,6 +21,10 @@ public class Theater {
 
     @Column(name="number_of_seats_per_row")
     private int numberOfSeatsPerRow;
+
+    @OneToMany(mappedBy = "theaterID")
+    @JsonBackReference
+    private List<Seat> seats;
 
     public int getTheaterID() {
         return theaterID;
@@ -58,5 +66,13 @@ public class Theater {
 
     public void setNumberOfSeatsPerRow(int numberOfSeatsPerRow) {
         this.numberOfSeatsPerRow = numberOfSeatsPerRow;
+    }
+
+    public List<Seat> getSeats() {
+        return seats;
+    }
+
+    public void setSeats(List<Seat> seats) {
+        this.seats = seats;
     }
 }

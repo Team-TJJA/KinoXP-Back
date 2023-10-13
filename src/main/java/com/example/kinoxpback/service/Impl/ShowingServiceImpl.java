@@ -7,8 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -40,7 +38,6 @@ public class ShowingServiceImpl implements ShowingService {
 
     public Optional<Showing> putShowing(Showing showing) {
         Optional<Showing> showingFound = showingRepository.findById(showing.getShowingID());
-
         if(showingFound.isPresent()) {
             return Optional.of(showingRepository.save(showing));
         } else {
@@ -59,8 +56,4 @@ public class ShowingServiceImpl implements ShowingService {
         }
         return false;
     }
-
-
-
-
 }
